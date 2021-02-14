@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BlackLibraryWH40K.Helper\BlackLibraryWH40K.Helper.csproj" />
+    <ProjectReference Include="..\BlackLibraryWH40K.Store\BlackLibraryWH40K.Store.csproj" />
+  </ItemGroup>
+
+</Project>
