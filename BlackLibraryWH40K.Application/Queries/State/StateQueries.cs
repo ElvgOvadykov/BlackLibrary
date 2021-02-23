@@ -18,13 +18,13 @@ namespace BlackLibraryWH40K.Application.Queries.State
         }
 
         /// <inheritdoc />
-        public async Task<Store.Model.State[]> GetAll()
+        public async Task<Store.Model.State[]> GetAllAsync()
         {
             return await _context.State.ToArrayAsync();
         }
 
         /// <inheritdoc />
-        public async Task<Store.Model.State> GetById(int id)
+        public async Task<Store.Model.State> GetByIdAsync(int id)
         {
             return await _context.State.Where(x => x.Id == id)
                 .FirstOrDefaultAsync();

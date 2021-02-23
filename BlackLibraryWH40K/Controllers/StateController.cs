@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BlackLibraryWH40K.Application.Commands.State;
 using BlackLibraryWH40K.Application.Queries.State;
+using BlackLibraryWH40K.Store.Model;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,39 +16,61 @@ namespace BlackLibraryWH40K.Controllers
     [ApiController]
     public class StateController : ControllerBase
     {
-        private readonly IStateQueries _stateQueries;
+        private readonly IStateQueries _queries;
         private readonly IMediator _mediator;
 
-        // GET: api/<StateController>
+        /// <summary>
+        /// Возвращает список сторон
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<ActionResult> GetAll()
         {
-            return new string[] { "value1", "value2" };
+            var states = await _queries.GetAllAsync();
+            return Ok(states);
         }
 
-        // GET api/<StateController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        /// <summary>
+        /// Возвращает сторону по идентификатору
+        /// </summary>
+        /// <param name="id">Идентификатор стороны</param>
+        /// <returns></returns>
+        [HttpGet("{id:int}")]
+        public async Task<ActionResult> GetById([FromRoute]int id)
         {
-            return "value";
+            var state = await _queries.GetByIdAsync(id);
+            return Ok(state);
         }
 
-        // POST api/<StateController>
+        /// <summary>
+        /// Создает новую сторону
+        /// </summary>
+        /// <param name="state">Сторона</param>
+        /// <returns></returns>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<ActionResult> Post([FromBody] State state)
         {
+            var stateId = await _mediator.Send(CreateState.Of(state));
+            return Ok(stateId);
         }
 
-        // PUT api/<StateController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        /// <summary>
+        /// Обновляет информацию о стороне
+        /// </summary>
+        /// <param name="state">Сторона</param>
+        /// <returns></returns>
+        [HttpPut]
+        public async Task<ActionResult> Put([FromBody] State state)
         {
+            await _mediator.Send(UpdateState.Of(state));
+            return Ok();
         }
 
-        // DELETE api/<StateController>/5
+
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            
         }
     }
 }

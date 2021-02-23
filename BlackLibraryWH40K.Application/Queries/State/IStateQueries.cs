@@ -12,13 +12,13 @@ namespace BlackLibraryWH40K.Application.Queries.State
         ///Возвращает список всех сторон
         /// </summary>
         /// <returns></returns>
-        Task<Store.Model.State[]> GetAll();
+        Task<Store.Model.State[]> GetAllAsync();
 
         /// <summary>
         /// Возвращает мир по сторон
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        Task<Store.Model.State> GetById(int id);
+        Task<Store.Model.State> GetByIdAsync(int id);
     }
 }

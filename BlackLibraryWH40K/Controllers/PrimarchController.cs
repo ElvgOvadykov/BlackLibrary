@@ -45,7 +45,7 @@ namespace BlackLibraryWH40K.Controllers
         /// <param name="number">Номер примарха</param>
         /// <returns></returns>
         [HttpGet("{number:int}")]
-        public async Task<ActionResult> Get([FromRoute]int number)
+        public async Task<ActionResult> GetByNumber([FromRoute]int number)
         {
             var primarch = await _queries.GetByNumberAsync(number);
             return Ok(primarch);
