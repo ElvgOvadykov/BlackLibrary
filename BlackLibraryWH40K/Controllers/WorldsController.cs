@@ -38,8 +38,8 @@ namespace BlackLibraryWH40K.Controllers
             return Ok(worlds);
         }
 
-        [HttpGet("id:int")]
-        public async Task<IActionResult> GetById([FromQuery]int id)
+        [HttpGet("{id:int}")]
+        public async Task<IActionResult> GetById([FromRoute]int id)
         {
             var world = await _worldsQueries.GetById(id);
             return Ok(world);

@@ -16,4 +16,8 @@
     <ProjectReference Include="..\BlackLibraryWH40K.Store\BlackLibraryWH40K.Store.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="clientapp\public\image" />
+  </ItemGroup>
+
 </Project>
