@@ -19,6 +19,7 @@ using Microsoft.OpenApi.Models;
 using MediatR;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
+using Microsoft.EntityFrameworkCore;
 
 namespace BlackLibraryWH40K
 {
@@ -48,7 +49,11 @@ namespace BlackLibraryWH40K
             services.AddTransient<IWorldsQueries, WorldsQueries>();
             services.AddTransient<IChaptersQueries, ChaptersQueries>();
             services.AddTransient<IPrimarchQueries, PrimarchQueries>();
-            services.AddDbContext<BlackLibraryContext>();
+            services.AddDbContext<BlackLibraryContext>(
+                 options =>
+                {
+                    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), builder => builder.UseRowNumberForPaging());
+                });
             services.AddControllers();
         }
 

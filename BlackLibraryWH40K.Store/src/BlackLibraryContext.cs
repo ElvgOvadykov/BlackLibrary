@@ -13,14 +13,9 @@ namespace BlackLibraryWH40K.Store
         public DbSet<State> State { get; set; }
         public DbSet<World> World { get; set; }
 
-        public BlackLibraryContext()
+        public BlackLibraryContext(DbContextOptions<BlackLibraryContext> options) : base(options)
         {
-            Database.EnsureCreated();
-        }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=blacklibrarydb;Integrated Security=True");
+            //Database.EnsureCreated();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
