@@ -8,9 +8,9 @@ namespace BlackLibraryWH40K.Application.Queries.Chapters
 {
     public class ChaptersQueries : IChaptersQueries
     {
-        private readonly BlackLibraryContext _context;
+        private readonly ReadOnlyBlackLibraryContext _context;
 
-        public ChaptersQueries(BlackLibraryContext context)
+        public ChaptersQueries(ReadOnlyBlackLibraryContext context)
         {
             _context = context;
         }

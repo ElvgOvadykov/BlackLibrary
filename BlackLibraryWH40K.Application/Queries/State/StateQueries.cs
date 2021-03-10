@@ -10,9 +10,9 @@ namespace BlackLibraryWH40K.Application.Queries.State
     /// </summary>
     public class StateQueries : IStateQueries
     {
-        private readonly BlackLibraryContext _context;
+        private readonly ReadOnlyBlackLibraryContext _context;
 
-        public StateQueries(BlackLibraryContext context)
+        public StateQueries(ReadOnlyBlackLibraryContext context)
         {
             _context = context;
         }

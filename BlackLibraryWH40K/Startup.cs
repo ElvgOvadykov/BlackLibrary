@@ -52,7 +52,12 @@ namespace BlackLibraryWH40K
             services.AddDbContext<BlackLibraryContext>(
                  options =>
                 {
-                    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), builder => builder.UseRowNumberForPaging());
+                    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+                });
+            services.AddDbContext<ReadOnlyBlackLibraryContext>(
+                options =>
+                {
+                    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
                 });
             services.AddControllers();
         }

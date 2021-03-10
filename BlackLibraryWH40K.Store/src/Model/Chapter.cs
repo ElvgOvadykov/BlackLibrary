@@ -35,7 +35,7 @@ namespace BlackLibraryWH40K.Store.Model
         /// <summary>
         /// Приемники
         /// </summary>
-        public List<Chapter> Successors { get; set; }
+        public ICollection<Chapter> Successors { get; set; }
 
         /// <summary>
         /// Родной мир

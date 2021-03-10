@@ -19,6 +19,12 @@ namespace BlackLibraryWH40K.Controllers
         private readonly IStateQueries _queries;
         private readonly IMediator _mediator;
 
+        public StateController(IStateQueries queries, IMediator mediator)
+        {
+            _queries = queries;
+            _mediator = mediator;
+        }
+
         /// <summary>
         /// Возвращает список сторон
         /// </summary>

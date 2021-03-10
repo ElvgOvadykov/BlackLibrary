@@ -10,9 +10,9 @@ namespace BlackLibraryWH40K.Application.Queries.Primarch
     /// </summary>
     public class PrimarchQueries : IPrimarchQueries
     {
-        private readonly BlackLibraryContext _context;
+        private readonly ReadOnlyBlackLibraryContext _context;
 
-        public PrimarchQueries(BlackLibraryContext context)
+        public PrimarchQueries(ReadOnlyBlackLibraryContext context)
         {
             _context = context;
         }

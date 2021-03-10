@@ -12,9 +12,9 @@ namespace BlackLibraryWH40K.Application.Queries.Worlds
     /// </summary>
     public class WorldsQueries : IWorldsQueries
     {
-        private readonly BlackLibraryContext _context;
+        private readonly ReadOnlyBlackLibraryContext _context;
 
-        public WorldsQueries(BlackLibraryContext context)
+        public WorldsQueries(ReadOnlyBlackLibraryContext context)
         {
             _context = context;
         }
