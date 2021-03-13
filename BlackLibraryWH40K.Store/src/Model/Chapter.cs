@@ -21,6 +21,11 @@ namespace BlackLibraryWH40K.Store.Model
         /// Боевой клич
         /// </summary>
         public string Warcry { get; set; }
+        
+        /// <summary>
+        /// Сторона
+        /// </summary>
+        public State State { get; set; }
 
         /// <summary>
         /// Магистр ордена
